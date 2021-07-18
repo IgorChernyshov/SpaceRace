@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		D6B4A1E626A47B7D006405D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4A1E526A47B7D006405D6 /* AppDelegate.swift */; };
 		D6B4A1E826A47B7D006405D6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D6B4A1E726A47B7D006405D6 /* GameScene.sks */; };
-		D6B4A1EA26A47B7D006405D6 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D6B4A1E926A47B7D006405D6 /* Actions.sks */; };
 		D6B4A1EC26A47B7D006405D6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4A1EB26A47B7D006405D6 /* GameScene.swift */; };
 		D6B4A1EE26A47B7D006405D6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4A1ED26A47B7D006405D6 /* GameViewController.swift */; };
 		D6B4A1F126A47B7D006405D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B4A1EF26A47B7D006405D6 /* Main.storyboard */; };
 		D6B4A1F326A47B7F006405D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B4A1F226A47B7F006405D6 /* Assets.xcassets */; };
+		D6B4A20826A47BEB006405D6 /* starfield.sks in Resources */ = {isa = PBXBuildFile; fileRef = D6B4A20026A47BEB006405D6 /* starfield.sks */; };
+		D6B4A20B26A47BEB006405D6 /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D6B4A20326A47BEB006405D6 /* explosion.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D6B4A1E226A47B7D006405D6 /* SpaceRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B4A1E526A47B7D006405D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6B4A1E726A47B7D006405D6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		D6B4A1E926A47B7D006405D6 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		D6B4A1EB26A47B7D006405D6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D6B4A1ED26A47B7D006405D6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		D6B4A1F026A47B7D006405D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6B4A1F226A47B7F006405D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6B4A1F426A47B7F006405D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6B4A20026A47BEB006405D6 /* starfield.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = starfield.sks; sourceTree = "<group>"; };
+		D6B4A20326A47BEB006405D6 /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +61,24 @@
 			isa = PBXGroup;
 			children = (
 				D6B4A1E526A47B7D006405D6 /* AppDelegate.swift */,
+				D6B4A1F226A47B7F006405D6 /* Assets.xcassets */,
+				D6B4A1FB26A47BD6006405D6 /* Content */,
 				D6B4A1E726A47B7D006405D6 /* GameScene.sks */,
-				D6B4A1E926A47B7D006405D6 /* Actions.sks */,
 				D6B4A1EB26A47B7D006405D6 /* GameScene.swift */,
 				D6B4A1ED26A47B7D006405D6 /* GameViewController.swift */,
-				D6B4A1EF26A47B7D006405D6 /* Main.storyboard */,
-				D6B4A1F226A47B7F006405D6 /* Assets.xcassets */,
 				D6B4A1F426A47B7F006405D6 /* Info.plist */,
+				D6B4A1EF26A47B7D006405D6 /* Main.storyboard */,
 			);
 			path = SpaceRace;
+			sourceTree = "<group>";
+		};
+		D6B4A1FB26A47BD6006405D6 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4A20326A47BEB006405D6 /* explosion.sks */,
+				D6B4A20026A47BEB006405D6 /* starfield.sks */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,10 +138,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B4A20826A47BEB006405D6 /* starfield.sks in Resources */,
 				D6B4A1F126A47B7D006405D6 /* Main.storyboard in Resources */,
 				D6B4A1E826A47B7D006405D6 /* GameScene.sks in Resources */,
 				D6B4A1F326A47B7F006405D6 /* Assets.xcassets in Resources */,
-				D6B4A1EA26A47B7D006405D6 /* Actions.sks in Resources */,
+				D6B4A20B26A47BEB006405D6 /* explosion.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +304,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = frostfell.SpaceRace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -311,7 +323,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = frostfell.SpaceRace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
