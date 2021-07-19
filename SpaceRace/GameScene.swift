@@ -24,6 +24,18 @@ final class GameScene: SKScene {
 	private let possibleEnemies = ["ball", "hammer", "tv"]
 	private var isGameOver = false
 	private var gameTimer: Timer?
+	private var timerTicks: Int = 0 {
+		didSet {
+			if timerTicks >= 20 {
+				var newInterval = gameTimer?.timeInterval ?? 0.1
+				newInterval -= 0.1
+				if newInterval < 0.1 { newInterval = 0.1 }
+				gameTimer?.invalidate()
+				gameTimer = Timer.scheduledTimer(timeInterval: newInterval, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+				timerTicks = 0
+			}
+		}
+	}
 
 	// MARK: - Lifecycle
 	override func didMove(to view: SKView) {
@@ -51,11 +63,12 @@ final class GameScene: SKScene {
 		physicsWorld.gravity = CGVector(dx: 0, dy: 0)
 		physicsWorld.contactDelegate = self
 
-		gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+		gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
 	}
 
 	// MARK: - Game Logic
 	@objc private func createEnemy() {
+		if isGameOver { return }
 		guard let enemy = possibleEnemies.randomElement() else { return }
 
 		let sprite = SKSpriteNode(imageNamed: enemy)
@@ -68,6 +81,8 @@ final class GameScene: SKScene {
 		sprite.physicsBody?.angularVelocity = 5
 		sprite.physicsBody?.linearDamping = 0
 		sprite.physicsBody?.angularDamping = 0
+
+		timerTicks += 1
 	}
 
 	override func update(_ currentTime: TimeInterval) {
@@ -97,6 +112,11 @@ extension GameScene: SKPhysicsContactDelegate {
 		}
 
 		player.position = location
+	}
+
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		if isGameOver { return }
+		didBegin(SKPhysicsContact())
 	}
 
 	func didBegin(_ contact: SKPhysicsContact) {
